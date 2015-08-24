@@ -186,7 +186,6 @@ var browserEnvironment = jscd.browser +' '+ jscd.browserMajorVersion +
 // returns true or false
 var areTheyOnMobile = jscd.mobile;
 var screenSize = jscd.screen;
-var lastPageInHistory = document.referrer;
 
 var windowEnvironment =
   '<b>Operating System:</b> ' + operatingSystem + '<br />' +
@@ -198,18 +197,55 @@ var loadEnvInfo = function() {
   $('#browser-info').append(windowEnvironment);
 }
 
-// pre-populate certain fields
-$('#referrer-url').attr('value', lastPageInHistory);
-$('#os').attr('value', operatingSystem);
-$('#browser').attr('value', browserEnvironment);
-$('#mobile').attr('value', areTheyOnMobile);
-$('#screen').attr('value', screenSize);
+// TODO finish this new structure tomorrow
+var environmentData =
+  {
+    referrer: {
+      id: '#referrer-url',
+      value: document.referrer,
+      entryID: '673759932'
+    },
+    operatingSystem: {
+      id: '#os',
+      value: jscd.os +' '+ jscd.osVersion,
+      entryID: '655357184'
+    },
+    browser: {
+      id: '#browser',
+      value: jscd.browser +' '+ jscd.browserMajorVersion + ' (' + jscd.browserVersion + ')',
+      entryID: '725846605'
+    },
+    mobile: {
+      id: '#mobile',
+      value: jscd.mobile,
+      entryID: '1456944448'
+    },
+    screenSize: {
+      id: '#screen',
+      value: jscd.screen,
+      entryID: '366159299'
+    }
+  }
+;
+
+$.each(environmentData, function(index, value){
+  var obj = value;
+  // find each field and prepopulate it with the value
+  $(obj.id).attr('value', obj.value);
+});
+
+// also prepopulate the checkbox
 $('#browser-toggle').attr('checked', 'checked');
+
 
 loadEnvInfo();
 
 // Form submission
 $('#ad-report-form').one('submit',function(){
+
+  // for each form field, get the value
+  // with this value, attach it to its respective entry id
+
   var referrerVal = encodeURIComponent($('#referrer-url').val());
   var operatingSystemVal = encodeURIComponent($('#os').val());
   var browserVal = encodeURIComponent($('#browser').val());
@@ -237,9 +273,7 @@ $('#ad-report-form').one('submit',function(){
   var email = 'entry.723396303=' + emailVal;
 
   var submitRef = '&submit=submit';
-  //var submitURL = (baseURL + os + '&' + browser + '&' + mobile + '&' + screenRef + '&' + nameRef + '&' + problemRef + '&' + detailsRef + '&' email + '&' + referrer + submitRef);
   var submitURL = (baseURL + os + '&' + browser + '&' + email + '&' + detailsRef + '&' + mobileRef + '&' + referrerRef + '&' + problemRef + '&' + nameRef + '&' + screenRef + submitRef);
-  console.log(submitURL);
   $(this)[0].action=submitURL;
-  //$('#email').addClass('active').val('Thank You!');
+  $('#email').addClass('active').val('Thank You!');
 });
