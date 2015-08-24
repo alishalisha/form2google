@@ -250,12 +250,6 @@ $.each(environmentData, function(index, value){
   var obj = value;
   // find each field and prepopulate it with the value
   $(obj.id).attr('value', obj.value);
-
-  // find the value of each field and encode it
-  // need to call this on submit
-  var encodedValue = encodeURIComponent($(obj.id).val());
-  var ref = '&entry.' + obj.entryID + '=' + encodedValue;
-  refURL = refURL + ref;
 });
 
 // also prepopulate the checkbox
