@@ -204,7 +204,7 @@ $('#referrer-url').attr('value', lastPageInHistory);
 loadEnvInfo();
 
 // Form submission
-$('#email-form').one('submit',function(){
+$('#ad-report-form').one('submit',function(){
   var emailAddress = encodeURIComponent($('#email').val());
   var referrerURL = encodeURIComponent($('#referrer-url').val());
   var baseURL = 'https://docs.google.com/a/voxmedia.com/forms/d/1OYouWfgdIPXOBBsoLznAawKYdJ9tjEz_Tccb8dFpJjg/formResponse?';
