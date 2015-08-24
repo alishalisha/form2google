@@ -180,12 +180,20 @@
     };
 }(this));
 
+var operatingSystem = jscd.os +' '+ jscd.osVersion;
+var browserEnvironment = jscd.browser +' '+ jscd.browserMajorVersion +
+    ' (' + jscd.browserVersion + ')';
+// returns true or false
+var areTheyOnMobile = jscd.mobile;
+var screenSize = jscd.screen;
+var lastPageInHistory = document.referrer;
+
 var windowEnvironment =
-  '<b>OS:</b> ' + jscd.os +' '+ jscd.osVersion + '<br />' +
-  '<b>Browser:</b> ' + jscd.browser +' '+ jscd.browserMajorVersion +
-    ' (' + jscd.browserVersion + ')<br />' + 
-  '<b>Mobile:</b> ' + jscd.mobile + '<br />' +
-  '<b>Screen Size:</b> ' + jscd.screen + '<br />';
+  '<b>OS:</b> ' + operatingSystem + '<br />' +
+  '<b>Browser:</b> ' + browserEnvironment + '<br />' + 
+  '<b>Mobile:</b> ' + areTheyOnMobile + '<br />' +
+  '<b>Screen Size:</b> ' + screenSize + '<br />' +
+  '<b>Page URL:</b> ' + lastPageInHistory + '<br />';
 
 
 var loadEnvInfo = function() {
