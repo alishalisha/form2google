@@ -185,8 +185,6 @@ var windowEnvironment =
   '<b>Browser:</b> ' + jscd.browser +' '+ jscd.browserMajorVersion +
     ' (' + jscd.browserVersion + ')<br />' + 
   '<b>Mobile:</b> ' + jscd.mobile + '<br />' +
-  '<b>Flash:</b> ' + jscd.flashVersion + '<br />' +
-  '<b>Cookies:</b> ' + jscd.cookies + '<br />' +
   '<b>Screen Size:</b> ' + jscd.screen + '<br />';
 
 
