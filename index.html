@@ -31,6 +31,9 @@
       section {
         margin: 30px 0;
       }
+      .browser-form-items {
+        //display: none;
+      }
     </style>
   </head>
   <body>
@@ -42,11 +45,24 @@
         <h3>Tell us about your environment.</h3>
         <span>Providing environment details will help us better debug the problem ad.</span>
 
-        <div id="browser"></div>
+        <div id="browser-info"></div>
 
+        <div class="browser-form-items">
+          <label for="os">Operating System</label>
+          <input type="text" id="os" name="os">
+
+          <label for="browser">Browser</label>
+          <input type="text" id="browser" name="browser">
+
+          <label for="mobile">Is Mobile?</label>
+          <input type="text" id="mobile" name="mobile">
+
+          <label for="screen">Screen Size</label>
+          <input type="text" id="screen" name="screen">
+        </div>
 
         <div class="browser-toggle">
-          <input name="browser-toggle" type="checkbox">
+          <input id="browser-toggle" name="browser-toggle" type="checkbox">
           <label for="environment">It's ok to send environment details with this report.</label>
         </div>
       </section>
@@ -64,13 +80,13 @@
           <option value="other">Other</option>
         </select>
 
-        <label for="details">Explain the problem in detail.</label>
+        <label for="details">In one sentence or less, what seems to be the problem?</label>
         <textarea id="details" type="text"></textarea>
       </section>
 
       <section>
         <h3>Tell us who you are.</h3>
-        <label for="name">Tell us who you are.</label>
+        <label for="name">Your Name (First and Last)</label>
         <input id="name" type="text">
 
         <input id="anon" type="checkbox">
@@ -84,7 +100,7 @@
     </form> 
 
     <!-- a blank iframe -->
-    <iframe src="blank" id="no-target" name="no-target"></iframe> 
+    <iframe src="_blank" id="no-target" name="no-target"></iframe> 
 
   </body>
   <script src="/app.js"></script>

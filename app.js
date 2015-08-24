@@ -194,25 +194,52 @@ var windowEnvironment =
   '<b>Mobile:</b> ' + areTheyOnMobile + '<br />' +
   '<b>Screen Size:</b> ' + screenSize + '<br />';
 
-
 var loadEnvInfo = function() {
-  $('#browser').append(windowEnvironment);
+  $('#browser-info').append(windowEnvironment);
 }
 
+// pre-populate certain fields
 $('#referrer-url').attr('value', lastPageInHistory);
+$('#os').attr('value', operatingSystem);
+$('#browser').attr('value', browserEnvironment);
+$('#mobile').attr('value', areTheyOnMobile);
+$('#screen').attr('value', screenSize);
+$('#browser-toggle').attr('checked', 'checked');
 
 loadEnvInfo();
 
 // Form submission
 $('#ad-report-form').one('submit',function(){
-  var emailAddress = encodeURIComponent($('#email').val());
-  var referrerURL = encodeURIComponent($('#referrer-url').val());
+  var referrerVal = encodeURIComponent($('#referrer-url').val());
+  var operatingSystemVal = encodeURIComponent($('#os').val());
+  var browserVal = encodeURIComponent($('#browser').val());
+  var mobileVal = encodeURIComponent($('#mobile').val());
+  var screenVal = encodeURIComponent($('#screen').val());
+
+  var referrerVal = encodeURIComponent($('#referrer-url').val());
+  var problemVal = encodeURIComponent($('#problem').val());
+  var detailsVal = encodeURIComponent($('#details').val());
+
+  var nameVal = encodeURIComponent($('#name').val());
+  var emailVal = encodeURIComponent($('#email').val());
+
+
   var baseURL = 'https://docs.google.com/a/voxmedia.com/forms/d/1OYouWfgdIPXOBBsoLznAawKYdJ9tjEz_Tccb8dFpJjg/formResponse?';
-  var emailVal = 'entry.723396303=' + emailAddress;
-  var referrerVal = 'entry.673759932=' + referrerURL;
+  
+  var referrerRef = 'entry.673759932=' + referrerVal;
+  var os = 'entry.655357184=' + operatingSystemVal;
+  var browser = 'entry.725846605=' + browserVal;
+  var mobileRef = 'entry.1456944448=' + mobileVal;
+  var screenRef = 'entry.366159299=' + screenVal;
+  var problemRef = 'entry.934273097=' + problemVal;
+  var detailsRef = 'entry.1461160753=' + detailsVal;
+  var nameRef = 'entry.167454359=' + nameVal;
+  var email = 'entry.723396303=' + emailVal;
+
   var submitRef = '&submit=submit';
-  var submitURL = (baseURL + emailVal + '&' + referrerVal + submitRef);
+  //var submitURL = (baseURL + os + '&' + browser + '&' + mobile + '&' + screenRef + '&' + nameRef + '&' + problemRef + '&' + detailsRef + '&' email + '&' + referrer + submitRef);
+  var submitURL = (baseURL + os + '&' + browser + '&' + email + '&' + detailsRef + '&' + mobileRef + '&' + referrerRef + '&' + problemRef + '&' + nameRef + '&' + screenRef + submitRef);
   console.log(submitURL);
   $(this)[0].action=submitURL;
-  $('#email').addClass('active').val('Thank You!');
+  //$('#email').addClass('active').val('Thank You!');
 });
