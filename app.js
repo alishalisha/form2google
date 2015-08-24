@@ -193,9 +193,9 @@ var windowEnvironment =
   '<b>Mobile:</b> ' + areTheyOnMobile + '<br />' +
   '<b>Screen Size:</b> ' + screenSize + '<br />';
 
-var loadEnvInfo = function() {
+(function() {
   $('#browser-info').append(windowEnvironment);
-}
+})();
 
 // TODO finish this new structure tomorrow
 var environmentData =
@@ -224,56 +224,55 @@ var environmentData =
       id: '#screen',
       value: jscd.screen,
       entryID: '366159299'
+    },
+    problem: {
+      id: '#problem',
+      entryID: '934273097'
+    },
+    details: {
+      id: '#details',
+      entryID: '1461160753'
+    },
+    name: {
+      id: '#name',
+      entryID: '167454359'
+    },
+    email: {
+      id: '#email',
+      entryID: '723396303'
     }
   }
 ;
+
+var refURL = '';
 
 $.each(environmentData, function(index, value){
   var obj = value;
   // find each field and prepopulate it with the value
   $(obj.id).attr('value', obj.value);
+
+  // find the value of each field and encode it
+  // need to call this on submit
+  var encodedValue = encodeURIComponent($(obj.id).val());
+  var ref = '&entry.' + obj.entryID + '=' + encodedValue;
+  refURL = refURL + ref;
 });
 
 // also prepopulate the checkbox
 $('#browser-toggle').attr('checked', 'checked');
 
-
-loadEnvInfo();
-
 // Form submission
 $('#ad-report-form').one('submit',function(){
-
-  // for each form field, get the value
-  // with this value, attach it to its respective entry id
-
-  var referrerVal = encodeURIComponent($('#referrer-url').val());
-  var operatingSystemVal = encodeURIComponent($('#os').val());
-  var browserVal = encodeURIComponent($('#browser').val());
-  var mobileVal = encodeURIComponent($('#mobile').val());
-  var screenVal = encodeURIComponent($('#screen').val());
-
-  var referrerVal = encodeURIComponent($('#referrer-url').val());
-  var problemVal = encodeURIComponent($('#problem').val());
-  var detailsVal = encodeURIComponent($('#details').val());
-
-  var nameVal = encodeURIComponent($('#name').val());
-  var emailVal = encodeURIComponent($('#email').val());
-
-
+  $.each(environmentData, function(index, value){
+    var obj = value;
+    // find the value of each field and encode it
+    var encodedValue = encodeURIComponent($(obj.id).val());
+    var ref = '&entry.' + obj.entryID + '=' + encodedValue;
+    refURL = refURL + ref;
+  });
   var baseURL = 'https://docs.google.com/a/voxmedia.com/forms/d/1OYouWfgdIPXOBBsoLznAawKYdJ9tjEz_Tccb8dFpJjg/formResponse?';
-  
-  var referrerRef = 'entry.673759932=' + referrerVal;
-  var os = 'entry.655357184=' + operatingSystemVal;
-  var browser = 'entry.725846605=' + browserVal;
-  var mobileRef = 'entry.1456944448=' + mobileVal;
-  var screenRef = 'entry.366159299=' + screenVal;
-  var problemRef = 'entry.934273097=' + problemVal;
-  var detailsRef = 'entry.1461160753=' + detailsVal;
-  var nameRef = 'entry.167454359=' + nameVal;
-  var email = 'entry.723396303=' + emailVal;
-
   var submitRef = '&submit=submit';
-  var submitURL = (baseURL + os + '&' + browser + '&' + email + '&' + detailsRef + '&' + mobileRef + '&' + referrerRef + '&' + problemRef + '&' + nameRef + '&' + screenRef + submitRef);
+  var submitURL = baseURL + refURL + submitRef;
   $(this)[0].action=submitURL;
   $('#email').addClass('active').val('Thank You!');
 });
