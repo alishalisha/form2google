@@ -189,25 +189,30 @@ var screenSize = jscd.screen;
 var lastPageInHistory = document.referrer;
 
 var windowEnvironment =
-  '<b>OS:</b> ' + operatingSystem + '<br />' +
+  '<b>Operating System:</b> ' + operatingSystem + '<br />' +
   '<b>Browser:</b> ' + browserEnvironment + '<br />' + 
   '<b>Mobile:</b> ' + areTheyOnMobile + '<br />' +
-  '<b>Screen Size:</b> ' + screenSize + '<br />' +
-  '<b>Page URL:</b> ' + lastPageInHistory + '<br />';
+  '<b>Screen Size:</b> ' + screenSize + '<br />';
 
 
 var loadEnvInfo = function() {
   $('#browser').append(windowEnvironment);
 }
 
+$('#referrer-url').attr('value', lastPageInHistory);
+
 loadEnvInfo();
 
 // Form submission
 $('#email-form').one('submit',function(){
   var emailAddress = encodeURIComponent($('#email').val());
-  var baseURL = 'https://docs.google.com/forms/d/13jiU15f2pZP_TESIq1b0wtjskOTV0-WcFRFIAhI8jOk/formResponse?entry.723396303=';
+  var referrerURL = encodeURIComponent($('#referrer-url').val());
+  var baseURL = 'https://docs.google.com/a/voxmedia.com/forms/d/1OYouWfgdIPXOBBsoLznAawKYdJ9tjEz_Tccb8dFpJjg/formResponse?';
+  var emailVal = 'entry.723396303=' + emailAddress;
+  var referrerVal = 'entry.673759932=' + referrerURL;
   var submitRef = '&submit=submit';
-  var submitURL = (baseURL + emailAddress + submitRef);
+  var submitURL = (baseURL + emailVal + '&' + referrerVal + submitRef);
+  console.log(submitURL);
   $(this)[0].action=submitURL;
   $('#email').addClass('active').val('Thank You!');
 });

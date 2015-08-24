@@ -14,26 +14,55 @@
       iframe {
         display: none;
       }
+      label, input {
+        display: block;
+      }
+      section {
+        margin: 30px 0;
+      }
     </style>
   </head>
   <body>
-    <h1>Environment details</h1>
-    <div id="browser"></div>
+    <h1>Report An Issue With Advertising</h1>
 
     <form id="email-form" action="" method="POST" target="no-target">
+
+      <section>
+        <h3>Tell us about your environment.</h3>
+        <span>Providing environment details will help us better debug the problem ad.</span>
+
+        <div id="browser"></div>
+        <div class="browser-toggle">
+          <label for="environment">It's ok to send environment details with this report.</label>
+          <input name="browser-toggle" type="checkbox">
+        </div>
+      </section>
+
+      <section>
+        <h3>Tell us about the ad in question.</h3>
+
+        <label for="referrer-url">URL of the page where you saw the advertisement:</label>
+        <input id="referrer-url" type="text">
+
+        <label for="problem">What seems to be the problem?</label>
+        <select id="problem" name="problem">
+          <option value="offensive">The content of the ad is offensive or inappropriate.</option>
+          <option value="autoplaying">The ad is autoplaying audio or video.</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="details">Explain the problem in detail.</label>
+        <textarea id="details" type="text"></textarea>
+      </section>
+
+      <label for="email">Email address</label>
       <input id="email" type="email" placeholder="enter email" name="email">
+
       <button id="email-submit" type="submit">SUBMIT</button>
     </form> 
 
     <!-- a blank iframe -->
-    <iframe src="_blank" id="no-target" name="no-target"></iframe> 
-
-    <!-- form action:
-    https://docs.google.com/a/voxmedia.com/forms/d/1OYouWfgdIPXOBBsoLznAawKYdJ9tjEz_Tccb8dFpJjg/formResponse -->
-
-    <!-- entry field:
-    entry_723396303
-    -->
+    <iframe src="blank" id="no-target" name="no-target"></iframe> 
 
   </body>
   <script src="/app.js"></script>
