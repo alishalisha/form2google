@@ -10,10 +10,31 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="assets/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <style type="text/css">
+      iframe {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <h1>Environment details</h1>
     <div id="browser"></div>
+
+    <form id="email-form" action="" method="POST" target="no-target">
+      <input id="email" type="email" placeholder="enter email" name="email">
+      <button id="email-submit" type="submit">SUBMIT</button>
+    </form> 
+
+    <!-- a blank iframe -->
+    <iframe src="_blank" id="no-target" name="no-target"></iframe> 
+
+    <!-- form action:
+    https://docs.google.com/a/voxmedia.com/forms/d/1OYouWfgdIPXOBBsoLznAawKYdJ9tjEz_Tccb8dFpJjg/formResponse -->
+
+    <!-- entry field:
+    entry_723396303
+    -->
+
   </body>
   <script src="/app.js"></script>
 </html>

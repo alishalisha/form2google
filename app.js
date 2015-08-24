@@ -193,3 +193,13 @@ var loadEnvInfo = function() {
 }
 
 loadEnvInfo();
+
+// Form submission
+$('#email-form').one('submit',function(){
+  var emailAddress = encodeURIComponent($('#email').val());
+  var baseURL = 'https://docs.google.com/forms/d/13jiU15f2pZP_TESIq1b0wtjskOTV0-WcFRFIAhI8jOk/formResponse?entry.723396303=';
+  var submitRef = '&submit=submit';
+  var submitURL = (baseURL + emailAddress + submitRef);
+  $(this)[0].action=submitURL;
+  $('#email').addClass('active').val('Thank You!');
+});
