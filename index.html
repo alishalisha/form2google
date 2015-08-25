@@ -28,11 +28,28 @@
       label, input {
         display: block;
       }
+      input {
+        min-height: 20px;
+        min-width: 300px;
+      }
+      input, select {
+        margin-bottom: 10px;
+      }
       section {
         margin: 30px 0;
       }
       .browser-form-items {
-        //display: none;
+        display: none;
+      }
+      button {
+        font-size: 2em;
+        background: yellow;
+        padding: 10px;
+        border: 0;
+      }
+      button:hover {
+        background: orange;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -101,7 +118,7 @@
 
     <!-- a blank iframe -->
     <iframe src="_blank" id="no-target" name="no-target"></iframe> 
-
+    <div><img src="http://media0.giphy.com/media/KAS8YrcoFWFcQ/giphy.gif" /></div>
   </body>
   <script src="/app.js"></script>
 </html>

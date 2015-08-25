@@ -180,23 +180,6 @@
     };
 }(this));
 
-var operatingSystem = jscd.os +' '+ jscd.osVersion;
-var browserEnvironment = jscd.browser +' '+ jscd.browserMajorVersion +
-    ' (' + jscd.browserVersion + ')';
-// returns true or false
-var areTheyOnMobile = jscd.mobile;
-var screenSize = jscd.screen;
-
-var windowEnvironment =
-  '<b>Operating System:</b> ' + operatingSystem + '<br />' +
-  '<b>Browser:</b> ' + browserEnvironment + '<br />' + 
-  '<b>Mobile:</b> ' + areTheyOnMobile + '<br />' +
-  '<b>Screen Size:</b> ' + screenSize + '<br />';
-
-(function() {
-  $('#browser-info').append(windowEnvironment);
-})();
-
 // TODO finish this new structure tomorrow
 var environmentData =
   {
@@ -208,22 +191,30 @@ var environmentData =
     operatingSystem: {
       id: '#os',
       value: jscd.os +' '+ jscd.osVersion,
-      entryID: '655357184'
+      entryID: '655357184',
+      env: true,
+      markup: '<b>Operating System:</b> '
     },
     browser: {
       id: '#browser',
       value: jscd.browser +' '+ jscd.browserMajorVersion + ' (' + jscd.browserVersion + ')',
-      entryID: '725846605'
+      entryID: '725846605',
+      env: true,
+      markup: '<b>Browser:</b> '
     },
     mobile: {
       id: '#mobile',
       value: jscd.mobile,
-      entryID: '1456944448'
+      entryID: '1456944448',
+      env: true,
+      markup: '<b>Mobile:</b> '
     },
     screenSize: {
       id: '#screen',
       value: jscd.screen,
-      entryID: '366159299'
+      entryID: '366159299',
+      env: true,
+      markup: '<b>Screen Size:</b> '
     },
     problem: {
       id: '#problem',
@@ -249,7 +240,12 @@ var refURL = '';
 $.each(environmentData, function(index, value){
   var obj = value;
   // find each field and prepopulate it with the value
-  $(obj.id).attr('value', obj.value);
+  if (obj.value) {
+    $(obj.id).attr('value', obj.value);
+  };
+  if (obj.env == true) {
+    $('#browser-info').append(obj.markup + obj.value + '<br />');
+  }
 });
 
 // also prepopulate the checkbox
@@ -268,5 +264,5 @@ $('#ad-report-form').one('submit',function(){
   var submitRef = '&submit=submit';
   var submitURL = baseURL + refURL + submitRef;
   $(this)[0].action=submitURL;
-  $('#email').addClass('active').val('Thank You!');
+  $('body').append('<h3>Thank You!</h3>');
 });
