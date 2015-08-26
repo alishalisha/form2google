@@ -1,0 +1,31 @@
+body {
+  background: #efefef;
+  font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif; }
+
+.ad-survey__container {
+  margin: 0 auto;
+  width: 300px;
+  background: #fff; }
+.ad-survey__header {
+  background: #488CAE;
+  padding: 20px;
+  color: #fff; }
+.ad-survey__header--cta {
+  font-weight: normal; }
+.ad-survey__form {
+  padding: 20px;
+  font-size: 0.9em; }
+.ad-survey__form--instructions {
+  display: block;
+  margin-bottom: 1em;
+  color: gray;
+  font-size: 0.9em; }
+.ad-survey__form--option {
+  margin-bottom: 10px; }
+  .ad-survey__form--option label {
+    margin-left: 5px; }
+  .ad-survey__form--option textarea {
+    display: block;
+    width: 100%; }
+
+/*# sourceMappingURL=style.css.map */

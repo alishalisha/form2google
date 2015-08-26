@@ -1,0 +1,42 @@
+// sass
+// sass --watch style.scss:style.css
+body {
+  background: #efefef;
+  font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+}
+
+.ad-survey {
+  &__container {
+    margin: 0 auto;
+    width: 300px;
+    background: #fff;
+  }
+  &__header {
+    background: #488CAE;
+    padding: 20px;
+    color: #fff;
+  }
+  &__header--cta {
+    font-weight: normal;
+  }
+  &__form {
+    padding: 20px;
+    font-size: 0.9em;
+  }
+  &__form--instructions {
+    display: block;
+    margin-bottom: 1em;
+    color: gray;
+    font-size: 0.9em;
+  }
+  &__form--option {
+    margin-bottom: 10px;
+    label {
+      margin-left: 5px;
+    }
+    textarea {
+      display: block;
+      width: 100%;
+    }
+  }
+}

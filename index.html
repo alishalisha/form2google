@@ -4,117 +4,60 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Report An Issue With Advertising</title>
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <title>Ad Blocker Survey</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <style type="text/css">
-      body {
-        font-family: 'Lato';
-        background: aqua;
-      }
-      h1 {
-        color: magenta;
-      }
-      h3 {
-        color: green;
-      }
-      iframe {
-        display: none;
-      }
-      label, input {
-        display: block;
-      }
-      input {
-        min-height: 20px;
-        min-width: 300px;
-      }
-      input, select {
-        margin-bottom: 10px;
-      }
-      section {
-        margin: 30px 0;
-      }
-      .browser-form-items {
-        display: none;
-      }
-      button {
-        font-size: 2em;
-        background: yellow;
-        padding: 10px;
-        border: 0;
-      }
-      button:hover {
-        background: orange;
-        cursor: pointer;
-      }
-    </style>
+    <link href="style.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <h1>Report An Issue With Advertising</h1>
+    <div class="ad-survey__container">
+      <div class="ad-survey__header">
+        <span>Logo here.</span><span>Vox Media User Survey</span>
+        <h3 class="ad-survey__header--cta">Ads can be improved. Please tell us the reason(s) you've chosen to use an ad blocker:</h3>
+      </div>
+      <div class="ad-survey__form">
+      <form id="ad-report-form" action="" method="POST" target="no-target">
+        <span class="ad-survey__form--instructions">Check all that apply:</span>
 
-    <form id="ad-report-form" action="" method="POST" target="no-target">
-
-      <section>
-        <h3>Tell us about your environment.</h3>
-        <span>Providing environment details will help us better debug the problem ad.</span>
-
-        <div id="browser-info"></div>
-
-        <div class="browser-form-items">
-          <label for="os">Operating System</label>
-          <input type="text" id="os" name="os">
-
-          <label for="browser">Browser</label>
-          <input type="text" id="browser" name="browser">
-
-          <label for="mobile">Is Mobile?</label>
-          <input type="text" id="mobile" name="mobile">
-
-          <label for="screen">Screen Size</label>
-          <input type="text" id="screen" name="screen">
+        <div class="ad-survey__form--option">
+          <input type="checkbox"><label>Concern for viruses</label></input>
         </div>
 
-        <div class="browser-toggle">
-          <input id="browser-toggle" name="browser-toggle" type="checkbox">
-          <label for="environment">It's ok to send environment details with this report.</label>
+        <div class="ad-survey__form--option">
+          <input type="checkbox"><label>Lack of trust that ads are safe</label></input>
         </div>
-      </section>
 
-      <section>
-        <h3>Tell us about the ad in question.</h3>
+        <div class="ad-survey__form--option">
+          <input type="checkbox"><label>Desire to not have browsing habits recorded</label></input>
+        </div>
 
-        <label for="referrer-url">URL of the page where you saw the advertisement:</label>
-        <input id="referrer-url" type="text">
+        <div class="ad-survey__form--option">
+          <input type="checkbox"><label>Ads that play video or audio don't belong</label></input>
+        </div>
 
-        <label for="problem">What seems to be the problem?</label>
-        <select id="problem" name="problem">
-          <option value="offensive">The content of the ad is offensive or inappropriate.</option>
-          <option value="autoplaying">The ad is autoplaying audio or video.</option>
-          <option value="other">Other</option>
-        </select>
+        <div class="ad-survey__form--option">
+          <input type="checkbox"><label>Remove distraction from reading</label></input>
+        </div>
 
-        <label for="details">In one sentence or less, what seems to be the problem?</label>
-        <textarea id="details" type="text"></textarea>
-      </section>
+        <div class="ad-survey__form--option">
+          <input type="checkbox"><label>Pages load faster without ads</label></input>
+        </div>
 
-      <section>
-        <h3>Tell us who you are.</h3>
-        <label for="name">Your Name (First and Last)</label>
-        <input id="name" type="text">
+        <div class="ad-survey__form--option">
+          <input type="checkbox"><label>Other</label></input>
+        </div>
+        <div class="ad-survey__form--option">
+          <textarea rows="5" placeholder="Type your reason(s) here..."></textarea>
+        </div>
 
-        <input id="anon" type="checkbox">
-        <label for="anon">Keep Me Anonymous</label>
-        <span>Note: While Eater guarantees your anonymity, it may be necessary to contact you to verify your tip. If you’d rather email someone directly, email contacts can be found on our masthead page.</span>
-
-        <label for="email">Your email address</label>
-        <input id="email" type="email" placeholder="enter email" name="email">
-
-      <button id="email-submit" type="submit">SUBMIT</button>
-    </form> 
+        <button id="submit" type="submit">Submit Response</button>
+        <div class="ad-survey__form--anon">All responses are anonymous</div>
+      </form> 
+      </div>
+    </div>
 
     <!-- a blank iframe -->
-    <iframe src="_blank" id="no-target" name="no-target"></iframe> 
-    <div><img src="http://media0.giphy.com/media/KAS8YrcoFWFcQ/giphy.gif" /></div>
+    <!-- <iframe src="_blank" id="no-target" name="no-target"></iframe>  -->
+    <center><img src="http://40.media.tumblr.com/a24147fd5fff5ffb76dc2ae3966bffe4/tumblr_nqms88kW6O1qjcdw9o1_1280.jpg" style="margin-top: 80px;" width="500px" /></center>
   </body>
   <script src="app.js"></script>
 </html>
