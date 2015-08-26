@@ -1,7 +1,13 @@
-// sass
 // sass --watch style.scss:style.css
 body {
   background: #efefef;
+}
+
+iframe {
+  display: none;
+  visibility: hidden;
+  height: 0;
+  width: 0;
 }
 
 .ad-survey {
