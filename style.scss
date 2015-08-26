@@ -2,7 +2,6 @@
 // sass --watch style.scss:style.css
 body {
   background: #efefef;
-  font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
 }
 
 .ad-survey {
@@ -10,6 +9,7 @@ body {
     margin: 0 auto;
     width: 300px;
     background: #fff;
+    font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
   }
   &__header {
     background: #488CAE;
@@ -37,6 +37,26 @@ body {
     textarea {
       display: block;
       width: 100%;
+    }
+  }
+  &__form--anon {
+    padding-top: 10px;
+    color: gray;
+    font-size: 0.9em;
+    text-align: center;
+  }
+  &__submit {
+    display: block;
+    border: 0;
+    background: #488CAE;
+    color: #fff;
+    padding: 20px;
+    width: 100%;
+    font-size: 1rem;
+    font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
+    &:hover {
+      cursor: pointer;
+      background: darken(#488CAE, 10%);
     }
   }
 }

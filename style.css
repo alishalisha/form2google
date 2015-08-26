@@ -1,11 +1,11 @@
 body {
-  background: #efefef;
-  font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif; }
+  background: #efefef; }
 
 .ad-survey__container {
   margin: 0 auto;
   width: 300px;
-  background: #fff; }
+  background: #fff;
+  font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif; }
 .ad-survey__header {
   background: #488CAE;
   padding: 20px;
@@ -27,5 +27,22 @@ body {
   .ad-survey__form--option textarea {
     display: block;
     width: 100%; }
+.ad-survey__form--anon {
+  padding-top: 10px;
+  color: gray;
+  font-size: 0.9em;
+  text-align: center; }
+.ad-survey__submit {
+  display: block;
+  border: 0;
+  background: #488CAE;
+  color: #fff;
+  padding: 20px;
+  width: 100%;
+  font-size: 1rem;
+  font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif; }
+  .ad-survey__submit:hover {
+    cursor: pointer;
+    background: #396f8a; }
 
 /*# sourceMappingURL=style.css.map */
