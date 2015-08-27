@@ -36,3 +36,7 @@ $('#ad-survey-form').one('submit',function(){
   $(this)[0].action=submitURL;
   $('.ad-survey__form').html('<h3>Thank You!</h3>');
 });
+
+$('.ad-survey__close').on('click', function() {
+  $('.ad-survey__container').fadeOut();
+})

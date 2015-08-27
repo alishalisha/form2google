@@ -17,6 +17,29 @@ iframe {
     background: #fff;
     font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
   }
+  &__title {
+    font-size: 0.8em;
+    vertical-align: middle;
+    margin-left: 10px;
+  }
+  &__close {
+    display: block;
+    float: right;
+    margin-top: -5px;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.6;
+    }
+  }
+  &__logo {
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    .st2{fill:#F6A01A;}
+    .st4{fill:#F47B20;}
+    .st44{fill:#FBE346;}
+    .st45{fill:#F8CC15;}
+  }
   &__header {
     background: #488CAE;
     padding: 20px;

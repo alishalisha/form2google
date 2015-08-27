@@ -1,11 +1,40 @@
 body {
   background: #efefef; }
 
+iframe {
+  display: none;
+  visibility: hidden;
+  height: 0;
+  width: 0; }
+
 .ad-survey__container {
   margin: 0 auto;
   width: 300px;
   background: #fff;
   font-family: 'Helvetica Neue', 'Helvetica', Arial, sans-serif; }
+.ad-survey__title {
+  font-size: 0.8em;
+  vertical-align: middle;
+  margin-left: 10px; }
+.ad-survey__close {
+  display: block;
+  float: right;
+  margin-top: -5px; }
+  .ad-survey__close:hover {
+    cursor: pointer;
+    opacity: 0.6; }
+.ad-survey__logo {
+  vertical-align: middle;
+  width: 20px;
+  height: 20px; }
+  .ad-survey__logo .st2 {
+    fill: #F6A01A; }
+  .ad-survey__logo .st4 {
+    fill: #F47B20; }
+  .ad-survey__logo .st44 {
+    fill: #FBE346; }
+  .ad-survey__logo .st45 {
+    fill: #F8CC15; }
 .ad-survey__header {
   background: #488CAE;
   padding: 20px;
